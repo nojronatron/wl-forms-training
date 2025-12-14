@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "davidanson.vscode-markdownlint",
+    "jon-rumsey-dev.jr-markdowntoc-vscode",
+    "digitalbrainstem.javascript-ejs-support",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "ms-vscode.live-server"
+  ],
+  "unwantedRecommendations": []
+}

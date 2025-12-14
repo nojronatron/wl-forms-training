@@ -1,0 +1,8 @@
+Form: tx-form.html,rx-form.html
+Type:P2P
+To: UR1CALL
+Subj: Hello World
+Msg:
+This is my first Winlink Template!
+
+73 de MY1CALL

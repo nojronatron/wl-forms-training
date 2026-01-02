@@ -1,0 +1,8 @@
+{
+    "editor.formatOnSave": false, // true recommended
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "html.validate.scripts": true,
+    "files.trimTrailingWhitespace": true
+}

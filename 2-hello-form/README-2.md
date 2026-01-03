@@ -18,7 +18,7 @@ The `Form` Field must:
 
 Use `<var>` Tags to capture data sent from a Form so it can be stored in the Message.
 
-Tags in the example [hello-template.txt](hello-template.txt) are used to put data into the message:
+Tags in the example [hello-form-template.txt](hello-form-template.txt) are used to put data into the message:
 
 - The `To:` Field.
 - The `Msg:` Field.
@@ -75,7 +75,7 @@ Everything else is optional! Depending on the goals of your form, you can add _m
 
 Put files into Winlink Express `Global Folders\Templates` directory:
 
-- `hello-template.txt`
+- `hello-form-template.txt`
 - `hello-form.html`
 
 ## Use
@@ -83,7 +83,7 @@ Put files into Winlink Express `Global Folders\Templates` directory:
 1. Open Winlink Express.
 2. Click 'New Message'
 3. Click 'Select Template'
-4. Click `hello-template.txt` in the Global (or callsign) directory.
+4. Click `hello-form-template.txt` in the Global (or callsign) directory.
 5. Click the 'Select' button and the default browser will load the Form defined by `hello-form.html`.
 6. Complete the form in the browser and click Submit.
 7. The new message window is populated with the values from the form.

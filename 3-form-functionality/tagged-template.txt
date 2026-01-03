@@ -1,0 +1,9 @@
+Form: functional-form.html
+To: <var tocall>
+Subj: My first Form message!
+Msg:
+
+<var myCall>
+<var toCall>
+---
+<ProgramVersion>

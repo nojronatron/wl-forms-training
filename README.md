@@ -93,7 +93,7 @@ code --install-extension <publisher.extension-id>
 
 After installing Winlink Express, look in its root installation folder for two files:
 
-- `SkeletonForm.html`: Starter Form file. Add CSS, JavaScript, and a template file to get going quickly.
+- `SkeletonForm.html`: Starter Form file. Add CSS, JavaScript, and a template file to get going quickly (with caveats noted in [Boilerplate Directory](#boilerplate-directory) comments, below).
 - `TemplateHelp.txt`: Keywords, usages, and examples for building Templates.
 
 Go to Winlink.org and peruse "HOW - TO Recipes" to find the following helpful resources:

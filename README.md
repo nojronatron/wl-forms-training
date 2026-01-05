@@ -1,5 +1,9 @@
 # Winlink Templates And Forms Training Materials
 
+[![pages-build-deployment](https://github.com/nojronatron/wl-forms-training/actions/workflows/pages/pages-build-deployment/badge.svg?branch=deploy-pages)](https://github.com/nojronatron/wl-forms-training/actions/workflows/pages/pages-build-deployment)
+
+---
+
 This directory stores information and references for a training class that introduces Winlink Template and Form development.
 
 Warning: Coding HTML, JavaScript, and CSS is an intermediate-level software development skillset.

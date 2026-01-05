@@ -84,14 +84,14 @@ body {
 }
 ```
 
-HTML elements within the `<body>` element will inherit these CSS properties:
+HTML elements within the `<body>` element will inherit CSS properties that apply to them:
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
     <head></head>
     <body>
-        <h1>Document Heading</h2>
+        <h2>Document Heading</h2>
     </body>
 </html>
 ```

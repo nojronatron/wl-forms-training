@@ -1,4 +1,4 @@
-# README-1
+# Build a Basic Winlink Template
 
 ## Purpose
 
@@ -8,9 +8,9 @@ Introduce the most basic Template file with as few elements as possible.
 
 Fields: Used to select message properties.
 
-Tags: Capture content when the template is applied to a message.
+Tags: Capture content when the template is applied to a message. Tags will be discussed in Module 2.
 
-## Type
+## Field: Type
 
 The message type:
 
@@ -18,7 +18,7 @@ The message type:
 - P2P: Peer to peer
 - RO: Radio ONly transmission
 
-## To
+## Field: To
 
 Populates the message with whom the message is to be delivered to.
 
@@ -32,11 +32,11 @@ Limited by:
 
 - Type: A P2P type message cannot be delivered to an internet address.
 
-## Subj
+## Field: Subj
 
 Message subject.
 
-## Msg
+## Field: Msg
 
 Text following this element defines the content for the message body.
 
@@ -60,3 +60,9 @@ Put the template file into one of the `Templates` folder:
 ## Resources
 
 TemplateHelp.txt
+
+## Footer
+
+Move on to [Module 2 - Create a Winlink Form](.././2-hello-form/README-2.md)
+
+Return to [Root README](../README.md)

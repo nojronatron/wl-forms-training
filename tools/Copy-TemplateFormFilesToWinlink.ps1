@@ -92,7 +92,7 @@ $copiedFiles = @()
 try {
     foreach ($f in $filesToCopy) {
         $dstFile = Join-Path -Path $dstPath -ChildPath $f.Name
-        # Use ShouldProcess so the script supports the built-in -WhatIf/-Confirm behavior
+
         if ($PSCmdlet.ShouldProcess("$($f.FullName)", "Copy to $dstFile")) {
             Copy-Item -Path $f.FullName -Destination $dstFile -Force -Verbose
             if (Test-Path -Path $dstFile) {
@@ -107,6 +107,7 @@ catch {
 }
 finally {
     Set-Location -Path $startingPath
+
     # Show destination and list of files copied
     if ($copiedFiles.Count -gt 0) {
         Write-Host "Files copied to: $dstPath" -ForegroundColor Green

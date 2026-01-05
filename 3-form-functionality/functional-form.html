@@ -4,89 +4,31 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>RMS Express Form</title>
-        <style type='text/css'>
-            body {
-                font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-                font-size: 1.2em;
-            }
-
-            form {
-                background:#22ddff;
-                border-radius: 10px;
-                padding: .4em;
-            }
-
-            input {
-                margin: .2em;
-            }
-
-            section {
-                display: flex;
-                justify-content: flex-end;
-                padding: .2em;
-            }
-
-            #main-container {
-                max-width: 500px;
-                padding: 1em;
-                background: linear-gradient(#11ccee, #11aaff);
-                border-radius: 20px;
-            }
-
-            #submit-container {
-                display: flex;
-                justify-content: flex-end;
-                padding: .2em;
-            }
-
-            .input-container {
-                width: 100%;
-                margin: auto;
-                text-align: center;
-                padding: .2em;
-            }
-        </style>
     </head>
 
     <body>
-        <div id="main-container">
-            <form
-                id="RMS_Express_form"
-                method="post"
-                action="http://{FormServer}:{FormPort}"
-                enctype="multipart/form-data"
-            >
-                <div class="input-container">
-                    <label for="mycall">Enter your callsign:</label>
-                    <input type="text" name="mycall" id="myCallsign" />
-                </div>
-                <div class="input-container">
-                    <label for="tocall">Enter recipients callsign:</label>
-                    <input type="text" name="tocall" id="yourCallsign" />
-                </div>
+        <form
+            id="RMS_Express_form"
+            method="post"
+            action="http://{FormServer}:{FormPort}"
+            enctype="multipart/form-data"
+        >
+            <label for="mycall">Enter your callsign:</label>
+            <input type="text" name="mycall" id="myCallsign" />
+            <label for="tocall">Enter recipients callsign:</label>
+            <input type="text" name="tocall" id="yourCallsign" />
 
-                <div id="submit-container">
-                    <input type="submit" name="Submit" value="Submit" />
-                </div>
-            </form>
+            <div>
+                <input type="submit" name="Submit" value="Submit" />
+            </div>
+        </form>
 
-            <section>
-                <input type="button" name="SaveButton" id="saveButton" value="Save Data"></input>
-            </section>
-        </div>
+        <section>
+            <label for="SaveButton">Save entered data to file.</label>
+            <input type="button" name="SaveButton" id="saveButton" value="Save Data"></input>
+        </section>
 
         <script>
-            function saveToLocalStorage(itemKey, itemValue) {
-                var existingItem = localStorage.getItem(itemKey);
-
-                if (existingItem.length > 0) {
-                    localStorage.removeItem(itemKey);
-                }
-
-                console.log('Storing item to browser memory:', itemKey, itemValue);
-                localStorage.setItem(itemKey, itemValue);
-            }
-
             function normalizeCallsign(callsign) {
                 var callsignTrimmed = callsign.trim();
                 var callsignUpper = callsignTrimmed.toUpperCase();

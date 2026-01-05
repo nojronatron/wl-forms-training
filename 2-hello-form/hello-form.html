@@ -1,18 +1,26 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>RMS Express Form</title>
+    </head>
 
-<head>
-</head>
+    <body>
+        <form
+            id="RMS_Express_form"
+            method="post"
+            action="http://{FormServer}:{FormPort}"
+            enctype="multipart/form-data"
+        >
+            <label for="mycall">Enter your callsign:</label>
+            <input type="text" name="mycall" />
+            <label for="tocall">Enter recipients callsign:</label>
+            <input type="text" name="tocall" />
 
-<body>
-    <form id='RMS_Express_form' method='post' action='http://{FormServer}:{FormPort}' enctype='multipart/form-data'>
-        <label for='mycall'>Enter your callsign:</label> 
-        <input type='text' name='mycall' />
-        <label for='tocall'>Enter recipients callsign:</label>
-        <input type='text' name='tocall' />
-        <p>
-            <input type='submit' name='Submit' value='Submit' method='Post' enctype='multipart/form-data' />
-        </p>
-    </form>
-</body>
-
+            <div>
+                <input type="submit" name="Submit" value="Submit" />
+            </div>
+        </form>
+    </body>
 </html>

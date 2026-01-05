@@ -1,0 +1,11 @@
+Form: styled-form.html
+To: <var tocall>
+Subj: My stylin' form
+Msg:
+Get away from Windows gray by using CSS.
+
+73,
+
+<var mycall>
+---
+<ProgramVersion>

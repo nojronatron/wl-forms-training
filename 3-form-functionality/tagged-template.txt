@@ -1,0 +1,14 @@
+Form: functional-form.html
+To: <var tocall>
+Subj: Javascript Adds Interaction
+Msg:
+
+Dear <var toCall>,
+
+I added javascript so data could be saved to a file.
+
+This allows users to store the file for record keeping, or transfer the file using a thumbdrive or wirelessly to a Winlink operator.
+
+73 de <var myCall>
+---
+<ProgramVersion>

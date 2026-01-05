@@ -92,3 +92,4 @@ Put files into Winlink Express `Global Folders\Templates` directory:
 
 - TemplateHelp.txt
 - Insertion Tags.txt
+- Mozilla Developer Network [HTML Cheatsheet](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Cheatsheet)

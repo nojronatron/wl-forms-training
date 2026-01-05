@@ -1,9 +1,9 @@
-Form: hello-form.html
+Form: styled-form.html
 To: <var tocall>
 Subj: My first Form message!
 Msg:
 Tnx and 73!
 
-<var mycall,UP>
+<var mycall>
 ---
 <ProgramVersion>

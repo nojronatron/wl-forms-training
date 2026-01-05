@@ -1,8 +1,12 @@
-Form: tx-form.html,rx-form.html
-Type:P2P
-To: UR1CALL
-Subj: Hello World
+Form: tx-form.html,tx-form-viewer.html
+Type: P2P
+To: <var tocall>
+Subj: Beautifully Styled Form
 Msg:
-This is my first Winlink Template!
+Provide a nice looking viewer form, and don't forget to distribute it to your team.
 
-73 de MY1CALL
+73,
+
+<var mycall>
+---
+<ProgramVersion>

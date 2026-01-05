@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>RMS Express Form</title>
+        <style type='text/css'>
+            body {
+                font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+                font-size: 1.2em;
+            }
+
+            form {
+                background:#22ddff;
+                border-radius: 10px;
+                padding: .4em;
+            }
+
+            input {
+                margin: .2em;
+            }
+
+            section {
+                display: flex;
+                justify-content: flex-end;
+                padding: .2em;
+            }
+
+            #main-container {
+                max-width: 500px;
+                padding: 1em;
+                background: linear-gradient(#11ccee, #11aaff);
+                border-radius: 20px;
+            }
+
+            #submit-container {
+                display: flex;
+                justify-content: flex-end;
+                padding: .2em;
+            }
+
+            .input-container {
+                width: 100%;
+                margin: auto;
+                text-align: center;
+                padding: .2em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="main-container">
+            <div class="input-container">
+                <p>Your callsign: {var mycall}</p>
+            </div>
+            <div class="input-container">
+                <p>Recipient's callsign: {var tocall}</p>
+            </div>
+        </div>
+    </body>
+</html>

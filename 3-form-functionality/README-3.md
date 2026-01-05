@@ -298,6 +298,7 @@ function saveToLocalStorage(itemKey, itemValue) {
     localStorage.setItem(itemKey, itemValue);
 }
 ```
+
 ## JavScript Built-In Objects
 
 Primitives: Simple representations of values.
@@ -345,7 +346,7 @@ Put files into Winlink Express `Global Folders\Templates` directory:
 - `tagged-template.txt`
 - `functional-form.html`
 
-If you define the javascript in its own file, copy it to the same directory as well.
+If you define the javascript in its own file copy it to the same directory as well.
 
 ## Use
 

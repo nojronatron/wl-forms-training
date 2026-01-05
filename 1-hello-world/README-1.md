@@ -54,7 +54,7 @@ Put the template file into one of the `Templates` folder:
 1. Open Winlink Express.
 2. Click 'New Message'
 3. Click 'Select Template'
-4. Click `hello-world-template.txt` in the Global (or callsign) directory.
+4. Click `hello-world-template.txt` in the Global Templates (or callsign) directory.
 5. Click the 'Select' button and the new Message will populate with values from the Template file.
 
 ## Resources

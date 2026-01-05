@@ -11,8 +11,7 @@ The template needs to know what form it is associated with. This is accomplished
 The `Form` Field must:
 
 1. Be the first line of the template file.
-2. Must have the exact name of the html file.
-`Form: hello-form.html`
+2. Must have the exact name of the html file, such as `Form: hello-form.html`
 
 ## Template Var Tags
 
@@ -83,9 +82,9 @@ Put files into Winlink Express `Global Folders\Templates` directory:
 1. Open Winlink Express.
 2. Click 'New Message'
 3. Click 'Select Template'
-4. Click `hello-form-template.txt` in the Global (or callsign) directory.
+4. Click `hello-form-template.txt` in the Global Templates (or callsign) directory.
 5. Click the 'Select' button and the default browser will load the Form defined by `hello-form.html`.
-6. Complete the form in the browser and click Submit.
+6. Complete the form in the browser and click the Submit button.
 7. The new message window is populated with the values from the form.
 
 ## Resources

@@ -1,8 +1,10 @@
 Form: styled-form.html
 To: <var tocall>
-Subj: My first Form message!
+Subj: My stylin' form
 Msg:
-Tnx and 73!
+Get away from Windows gray by using CSS.
+
+73,
 
 <var mycall>
 ---

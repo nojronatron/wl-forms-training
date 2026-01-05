@@ -341,7 +341,7 @@ Remember: You can move the javascript to a separate file if you wish, but rememb
 1. Open Winlink Express.
 2. Click 'New Message'
 3. Click 'Select Template'
-4. Click `tagged-styledform-template.txt` in the Global (or callsign) directory.
+4. Click `tagged-styledform-template.txt` in the Global Templates directory.
 5. Click the 'Select' button and the default browser will launch, displaying the `styled-form.html` form.
 6. Complete the form by adding values to the text boxes.
 7. Click Save button to download the form data to a file.

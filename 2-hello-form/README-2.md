@@ -31,19 +31,40 @@ HTML is the language of document __structure__:
 - A document has a type: "html" in this case.
 - A document type has a language setting for a browser to read: "en" (English).
 - An HTML document should have a HEAD and BODY.
-- Head: Tells the browser the title of the web page, as well as other information to help it render the web page as intended.
+- Head: Tells the browser the title of the web page, as well as other information to help it render the web page as intended, such as links to stylesheets.
 - Body: The Layout and content of the web page. Includes HTML Elements like `<form>` and `<div>` which define various parts of the page.
 
 Recommendation: Stick to the format provided in this example to simplify learning HTML and Winlink Forms.
 
+An HTML Page is called a Document:
+
+- It is made up of HTML Elements to arrange content.
+- Additional functionality and features are available through the Document _object_.
+
 All HTML elements must be opened and closed. Many HTML elements also have properties called `attributes` which define specific capabilities of the element.
+
+Opening an HTML element, adding content, then closing the element:
+
+```html
+<p>Hello World!</p>
+```
+
+Some elements can be closed without adding content, such as `input` elements:
+
+```html
+<input type="submit" name="Submit" value="Submit" />
+```
+
+Rule of thumb: If the element displays content, be sure to use a closing tag after the content, otherwise add `/` to the end of the tag to "self close" it.
+
+Elements are defined in part by "attributes". They are the properties of elements.
 
 One attribute, `ID` is special in that only one ID value can exist within an entire HTML document. The idea is to allow other frameworks and processes to "target" the element by its ID to do things like:
 
 - Capture its value.
 - Set other attributes like style (color, etc), or state (hidden or visible, etc).
 
-More about HTML Element Attributes later.
+Type, Name, Value, and Class are a few of many other attributes that can be set.
 
 ## Winlink Form Requirements
 
@@ -52,7 +73,7 @@ A Winlink Form will not operate as intended without the following HTML elements:
 - `<form>`: Must have an ID that you can name as you wish, and the attributes `post`, `action`, and `enctype` exactly as defined in [hello-form.html](hello-form.html)
 - `<input>`: Must have attribute `type="submit"` and (by convention) have attributes `name="Submit" value="Submit"` (note the case-sensitivity).
 
-For every Winlink Form you create, ensure the following:
+For every Winlink Form you create, ensure the following things are included:
 
 - The `<Form>` element has these attributes: `method="post" action="http://{FormServer}:{FormPort}" enctype="multipart/form-data"`.
 - The `<Form>` element has a unique `id`, named to your preference. For these exercises, just use "RMS_Express_form".
@@ -69,6 +90,33 @@ Everything else is optional! Depending on the goals of your form, you can add _m
 3. Name each `input` element with the `name` attribute that matches an existing _Tag_.
 4. When the user complets the form and clicks the _Submit_ button, data is transferred to the Winlink Template file for processing.
 5. The Winlink Template matches `<input>` element's `name` attribute with existing `var` Tags, and copies the data from the Form to the message.
+
+## Input Types
+
+There are many more input types that you can use to get information from the user:
+
+- color
+- date
+- file
+- number
+- password
+- radio
+- ...and many, many more.
+
+For now, these Modules will stick with "button" and "text".
+
+## The Label Element
+
+A read-only element. Give it a `for=""` and set a value that describes the purpose of the input element with the same `name=""` attribute:
+
+```html
+<label for="tocall">Enter recipients callsign:</label>
+<input type="text" name="tocall" />
+```
+
+## The Form Element
+
+The Form Element does a lot of work under the hood. Think of it as a box around labels and inputs that, when the "submit" button is clicks, deals with the dirty work "submitting" the form data to where it needs to go.
 
 ## Install
 

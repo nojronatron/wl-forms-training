@@ -146,7 +146,7 @@ section {
 
 ```html
 <section>
-    <input type="button" name="SaveButton" id="saveButton" value="Save Data"></input>
+    <input type="button" name="SaveButton" id="saveButton" value="Save Data" />
 </section>
 ```
 

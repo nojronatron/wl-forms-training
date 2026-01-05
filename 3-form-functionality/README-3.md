@@ -1,8 +1,8 @@
-# README-3
+# Add Functionality to Winlink Forms
 
 ## Purpose
 
-Build out Form features to improve capabilities.
+Build out Form features to improve capabilities like additional buttons and file processing.
 
 ## Javascript
 
@@ -364,3 +364,9 @@ If you define the javascript in its own file copy it to the same directory as we
 - TemplateHelp.txt
 - Insertion Tags.txt
 - JavaScript [Beginner's Tutorials](https://developer.mozilla.org/en-US/docs/Web/JavaScript#beginners_tutorials) on Mozilla Developers Network
+
+## Footer
+
+Move on to [Module 4 - Form Style](.././4-form-style/README-4.md)
+
+Return to [Root README](../README.md)

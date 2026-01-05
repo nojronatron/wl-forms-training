@@ -1,4 +1,4 @@
-# README-2
+# Build a Basic Winlink Form
 
 ## Purpose
 
@@ -92,3 +92,9 @@ Put files into Winlink Express `Global Folders\Templates` directory:
 - TemplateHelp.txt
 - Insertion Tags.txt
 - Mozilla Developer Network [HTML Cheatsheet](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Cheatsheet)
+
+## Footer
+
+Move on to [Module 3 - Form Functionality](.././3-form-functionality/README-3.md)
+
+Return to [Root README](../README.md)

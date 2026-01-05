@@ -8,7 +8,13 @@ Materials are set up in modules to build upon each other. By the time you are do
 
 This material is not comprehensive. As much as possible, I have reduced information down to bare minimums so that those new to web development can get onboarded and start creating/editing basic Winlink Templates and Forms.
 
-## Directory Structure
+## Terminology
+
+Winlink Form: An HTML webpage with a specially crafted Form element designed to work directly with Winlink Express to simplify data input using a familiar web-based user interface.
+
+Winlink Template: A plain text file with Winlink specific syntax that can help rapidly define a standardized Message Layout, and integrate easily with Winlink Forms.
+
+## Project Directory Structure
 
 A compact overview of the repository layout with short descriptions.
 
@@ -31,11 +37,17 @@ Notes:
 
 ## Module Instructions
 
+Instructions and background information in these modules will get increasingly more complex and lengthy.
+
 - Module 1 Create a basic Winlink Template: [Hello World](./1-hello-world/README-1.md)
 - Module 2: Create a basic Winlink Form [Hello Form](./2-hello-form/README-2.md)
 - Module 3: Add [Form Functionality](./3-form-functionality/README-3.md)
 - Module 4: Add [Form Style](./4-form-style/README-4.md)
 - Module 5 (Bonus): Create a [Form Viewer](./5-txrx-forms/README-5.md)
+
+Understanding the basics introduced in Modules 1 and 2 are probably the most critical short-term goals.
+
+Longer term, it is up to you to seek resources and training to learn more about web development with HTML, CSS, and JavaScript. These skills will help you to build effective, attractive, and widely usable Winlink Forms.
 
 ## Recommended Configurations
 

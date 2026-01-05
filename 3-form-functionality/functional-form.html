@@ -29,17 +29,6 @@
         </section>
 
         <script>
-            function saveToLocalStorage(itemKey, itemValue) {
-                var existingItem = localStorage.getItem(itemKey);
-
-                if (existingItem.length > 0) {
-                    localStorage.removeItem(itemKey);
-                }
-
-                console.log('Storing item to browser memory:', itemKey, itemValue);
-                localStorage.setItem(itemKey, itemValue);
-            }
-
             function normalizeCallsign(callsign) {
                 var callsignTrimmed = callsign.trim();
                 var callsignUpper = callsignTrimmed.toUpperCase();

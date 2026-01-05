@@ -12,7 +12,15 @@ JavaScript, in conjunction with Web APIs are the "action" components of websites
 - Can convert values and perform math on inputs, so that correct output values are provided to the template/Winlink Message.
 - Enables developer to make decisions and change the form while it is loaded in the user's browser.
 
-The more you know about JavScript and Web APIs, the more you can do.
+Developing websites with JavaScript is not simple, however it is not hard to find solutions to problems you encounter.
+
+This module does not intend to teach you JavaScript so that you can walk-away ready to write a website.
+
+The goal is to introduce commonly used aspects and code patterns to apply and get going quickly with Winlink Forms.
+
+You can copy-paste as much (or as little) of the code as you wish.
+
+> The more you know about JavScript and Web APIs, the more you can do.
 
 ## What This Module Covers
 
@@ -61,11 +69,12 @@ Inline Javascript:
 - Most of the time add the `<script>` element at the end of the `<body>` block. This keeps the Javascript interpreter from blocking page rendering for better perceived page performance.
 - Only add `<script>` inside the `<head>` element when it is _required_ in order to render the page at all.
 
-It is best practice to referentially load javascript from one or more files:
+It is usually good practice to referentially load javascript from one or more files:
 
 - `<script src="path/to/script.js" deferred></script>`
 - Improves readability and maintainability.
 - Enhances collaborative contributions, limiting opportunity for merge conflicts in the repository.
+- For Winlink Express distribution, especially in offline scenarios, having to distribute more files and troubleshoot form usage and operation will be more difficult.
 
 ## Helpful Tools
 
@@ -179,6 +188,156 @@ function downloadFile(fileContent, fileName) {
 }
 ```
 
+## Loading Form Data From File
+
+This is a little simpler than saving data to a file, but it is still necessary to:
+
+1. Set an HTML Element to an input of type "file".
+2. Optionally create a button the user can press to start loading a file.
+3. Allow the user to locate the file to load.
+4. Parse the loaded data. This can be difficult depending on the type of data such as Numbers vs. Date vs. Strings.
+5. Load the Form elements with the file data. Larger forms with more form fields results in more code necessary to complete the task.
+
+```html
+<input type="file" id="txtfiletoread" accept=".txt" />
+<input name="loadbtn" type="button" class="loadDataButton" id="loadbtn" value="Load Race data" title="Load data from a file." />
+```
+
+This is the outdated way to set a click event: `<input type="button" onclick="document.getElementById('txtfiletoread').click();">Load File</input>`
+
+Instead, keep HTML easy to read and maintain:
+
+```html
+<section>
+    <input type="button" name="SaveButton" id="saveButton" value="Save Data" />
+    <input type="button" name="LoadButton" id="loadButton" value="Load Data" />
+    <input type="file" id="txtfiletoread" accept=".txt" />
+</section>
+```
+
+Use `addEventListener()` to trigger the FileReader API code:
+
+```javascript
+const fileSelector = document.getElementById('txtfiletoread');
+
+const loadButton = document.getElementById('loadButton');
+loadButton.addEventListener('click', () => {
+  fileSelector.click();
+});
+
+fileSelector.addEventListener('change', (event) => {
+  const file = event.target.files[0]; // Get the first selected file
+  if (file) {
+    readFileData(file);
+  }
+});
+
+function readFileData(file) {
+    const fileReader = new FileReader();
+
+    // this subsection of code is not run until FileReader has tried to load file data
+    fileReader.onload = (e) => {
+        // prompts user for a filepath and name
+        const content = e.target.result;
+        console.log('File content: content');
+
+        // parse the JSON data for convenient access
+        let jsonData = JSON.parse(content);
+
+        // check for valid data and log an error if empty
+        if (jsonData === undefined || jsonData.length < 1) {
+            console.error('JSON string data is empty. No file data to load.');
+        } else {
+            console.log("File content parsed as JSON:", jsonData);
+
+            // assign the values to the input elements
+            document.getElementById('myCallsign').value = jsonData.MyCallsign;
+            document.getElementById('yourCallsign').value = jsonData.YourCallsign;
+        }
+    };
+
+    // check for fileReader error and log a message if for example file not found
+    fileReader.onerror = (e) => {
+      console.error("Error reading file:", e.target.error);
+    };
+
+    // Read the file as text
+    fileReader.readAsText(file);
+}
+```
+
+And then use CSS to hide the "file" type input element to keep the UI tidy:
+
+```css
+#txtfiletoread {
+  display: None;
+}
+```
+
+## Storing Data Locally
+
+Here is an exercise to try:
+
+1. Add the `saveToLocalStorage()` function code to the `<script>` area of `styled-form.html`.
+2. Create a button called "Store In Browser" on `styled-form.html` (in the `<body>`, probably next to the other buttons).
+3. Create an event listener (`addEventListener('click' () => {});`) that calls the function below, taking a value from an input element (try `myCallsign`).
+4. Save the changes.
+5. Load the form into a browser.
+6. Open the Developer Tools and click on the Application tab, Local storage node, `file://` node.
+7. The key-value data should appear in the child node after clicking your new Store In Browser button.
+
+```javascript
+function saveToLocalStorage(itemKey, itemValue) {
+    var existingItem = localStorage.getItem(itemKey);
+
+    if (existingItem.length > 0) {
+        localStorage.removeItem(itemKey);
+    }
+
+    console.log('Storing item to browser memory:', itemKey, itemValue);
+    localStorage.setItem(itemKey, itemValue);
+}
+```
+## JavScript Built-In Objects
+
+Primitives: Simple representations of values.
+
+Objects:
+
+- More robust data representations with built-in state and capabilities, such as Arrays and Date objects.
+- Other representations: Undefined, Not a Number, Null, etc.
+
+JavaScript is full other other functionality. Probably the most commonly used are `map()` and `forEach()`. This is true specifically for Winlink Forms.
+
+- Both iterate over collections (arrays) of items.
+- Both accept a array and a function as input arguments.
+- `map()`: Returns a new array of items resulting from calling the function on every item in the provided array.
+- `forEach()`: Executes the provided function once for each array element.
+
+Parsing Strings (i.e. Is this a string and if so return its value):
+
+- Fairly simple due to a JavaScript feature called [String Coersion](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion).
+- Stick with using [string primitives](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion).
+  - String literals: " " or ' '
+  - String concatenation: `"Hello" + " " + "World!"` or ```let hello="Hello"; let world="World!";console.log(`${hello} ${world}`);```
+  - No need to use `new String()` to create strings.
+- Use `indexOf()`, `match()` (a regular expression function), `replace()`, and `substring()` to verify and manipulate values of a string.
+
+Parsing Numbers:
+
+Parsing a Number is a little tougher due to several ways they are presented in JavaScript:
+
+- Floating-point (rational) numbers: The default, most common handling.
+- Binary.
+- Hexadecimal.
+- Not A Number (NaN).
+- null.
+- undefined.
+
+Parsing other JavaScript Objects:
+
+- Look up the Object type on MDN to determine the best method: [JavaScript Standard Built-In Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
+
 ## Install
 
 Put files into Winlink Express `Global Folders\Templates` directory:
@@ -203,4 +362,4 @@ If you define the javascript in its own file, copy it to the same directory as w
 
 - TemplateHelp.txt
 - Insertion Tags.txt
-- Many online resources including [Mozilla Developer Network (MDN)](https://mdn.com)
+- JavaScript [Beginner's Tutorials](https://developer.mozilla.org/en-US/docs/Web/JavaScript#beginners_tutorials) on Mozilla Developers Network

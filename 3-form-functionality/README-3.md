@@ -2,34 +2,32 @@
 
 ## Purpose
 
-Build out Form features to improve capabilities like additional buttons and file processing.
+Build out Form features to improve capabilities like handling button clicks and saving and loading files.
 
 ## Javascript
 
-JavaScript, in conjunction with Web APIs are the "action" components of websites:
+JavaScript in conjunction with Web APIs are the "action" components of websites:
 
 - Adds capabilities to a 'static' website built with HTML.
-- Can convert values and perform math on inputs, so that correct output values are provided to the template/Winlink Message.
-- Enables developer to make decisions and change the form while it is loaded in the user's browser.
+- Can convert values and perform math on inputs, so that correct output values are provided to the template/Winlink Message, or output to a file, etc.
+- Enable developer to make decisions and change elements and appearance of the form while it is loaded in the user's browser.
 
 Developing websites with JavaScript is not simple, however it is not hard to find solutions to problems you encounter.
 
-This module does not intend to teach you JavaScript so that you can walk-away ready to write a website.
-
-The goal is to introduce commonly used aspects and code patterns to apply and get going quickly with Winlink Forms.
-
-You can copy-paste as much (or as little) of the code as you wish.
+You can copy-paste as much (or as little) of the code as you wish throughout these modules.
 
 > The more you know about JavScript and Web APIs, the more you can do.
 
-## What This Module Covers
+## What to Expect
 
 This training module is _not comprehensive_:
 
 - Introduction to one simple use case for Javascript in a Winlink Form.
 - Overview of good practices when writing Javascript to enhance Winlink Forms you develop.
 
-## What to Expect
+This module does not intend to teach you JavaScript so that you can walk-away ready to write a website.
+
+> The goal is to introduce commonly used aspects and code patterns to apply and get going quickly with Winlink Forms.
 
 If you have none or very little programming experience:
 
@@ -39,17 +37,17 @@ If you have none or very little programming experience:
 
 If you are an experienced programmer:
 
-- This content might appear to be obvious and oversimplified
-- Can pick-up the concepts and get going right away enhancing a Winlink Form.
+- This content might appear to be obvious, oversimplified, or perhaps incomplete. You would be correct - it is very focused for educational purposes.
+- You should be able to pick up the concepts and get going right away enhancing a Winlink Form.
 
-The idea is to introduce the capabilities so you can pick it up and run with it (tm).
+The idea is to introduce the capabilities so you can pick it up and run with it.
 
 ## Web APIs
 
-These are built into modern browsers, allowing Javascript to interact with the browser document.
+Modern browsers have Web APIs built into them that allow Javascript to interact with the document loaded into the browser.
 
-- Enable editing HTML Elements. Use the `id` field to allow Javascript to find and change element attributes such as visibility or style (Style/CSS is covered in the next module).
-- Intercept click and other events to add functionality.
+- Enable editing HTML Elements. Use the `id` field to allow Javascript to find and change an element's attributes such as visibility or style (Style/CSS is covered in the next module).
+- Intercept click and other events to provide custom functionality.
 - Validate user inputs to ensure poorly formed data is unlikely to make it into the Message.
 - Enable saving form-entered data to a file, or loading the form data _from_ a file.
 - Allows access to the browser memory to temporarily store data from Form use to Form use (i.e. Storing your Callsign or a fragment of data from the prior form submission).
@@ -58,10 +56,10 @@ These are built into modern browsers, allowing Javascript to interact with the b
 
 Some examples here (and elsewhere) are going to break lots of standards and best practices.
 
-- Try to stick with ECMA 2015/ES 6 standards to wide browser compatibility and modern capabilities and performance.
-- Avoid loading javascript inline unless there is good reason for it:
-  - Must limit the number of files to distribute.
-  - Performance and maintainability aren't a big concern.
+- Try to stick with ECMA 2015/ES 6 standards to wide browser compatibility and modern capabilities and performance [JavaScript documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- In real life, avoid loading javascript inline unless there is good reason for it:
+  - Must limit the number of files to distribute (as might be the case with Winlink users).
+  - Performance and maintainability aren't a big concern (as might be the case for your project).
 
 Inline Javascript:
 
@@ -71,10 +69,20 @@ Inline Javascript:
 
 It is usually good practice to referentially load javascript from one or more files:
 
-- `<script src="path/to/script.js" deferred></script>`
 - Improves readability and maintainability.
 - Enhances collaborative contributions, limiting opportunity for merge conflicts in the repository.
 - For Winlink Express distribution, especially in offline scenarios, having to distribute more files and troubleshoot form usage and operation will be more difficult.
+
+An example of referentially loading JavaScript from a file, and deferring processing to reduce document loading delays:
+
+```html
+<body>
+  <article>
+    ...
+  </article>
+  <script src="path/to/script.js" deferred></script>
+</body>
+```
 
 ## Helpful Tools
 
@@ -94,11 +102,9 @@ Semicolon: Defines the end of a line of code `;`
 
 '//': Everything following this on the same line is a comment and is not executed.
 
-Javascript "Console Log":
+Javascript `console.log("your message")`: Add this to any area inside `<script>` block to output information to the _Console_ tab in Developer Tools.
 
-- `console.log("")`: Add this to any area inside `<script>` block to output information to the Developer Tools' _Console_ tab.
-
-Template Literal: Concatenate text with variable values (strings). ```var word="world!"; console.log(`Hello ${word}`;```
+Template Literal: Concatenate text with variable values (strings). For example: ```var word="world!"; console.log(`Hello ${word}`;``` displays "Hellow World" in the Console tab when the line is executed.
 
 Function: Keyword defines an encapsulated code block that can be referenced from elsewhere. `function sayHello() { console.log('Hello World!')};`
 
@@ -164,10 +170,22 @@ Define Form Names that match Template Tags:
 
 ## Saving Form Data To File
 
+Blob: Some value(s) stored in a structured way that is useful for reading from, or writing to files.
+
+URL: A JavaScript object that creates a link, much like a hyperlink used to navigate the internet.
+
+Document API:
+
+- createElement: JavaScript creates an element on the Document for you programmatically.
+- setAttribute: Add an attribute (like `id="myCallsign"`) to an existing element programmatically.
+- appendChild: Tells the Document to add the Element to the layout.
+
+WebAPI HTML Element `.click()` performs a click programmatically. Effect is the same as clicking the element with a mouse (think: Submit button).
+
 ```javascript
 // Saves form data to Downloads folder
 function downloadFile(fileContent, fileName) {
-    // 1. Create a Blob from the content ('application/json' is a good portable alternative)
+  // 1. Create a Blob from the content ('application/json' is a good portable alternative)
     const myFile = new Blob([fileContent], { type: 'text/plain' });
 
     // 2. Create a URL for the Blob
@@ -190,7 +208,7 @@ function downloadFile(fileContent, fileName) {
 
 ## Loading Form Data From File
 
-This is a little simpler than saving data to a file, but it is still necessary to:
+This approach uses a proxy element (similar to saving data to a file) but requires a bit more HTML and JavaScript to work properly:
 
 1. Set an HTML Element to an input of type "file".
 2. Optionally create a button the user can press to start loading a file.
@@ -203,19 +221,20 @@ This is a little simpler than saving data to a file, but it is still necessary t
 <input name="loadbtn" type="button" class="loadDataButton" id="loadbtn" value="Load Race data" title="Load data from a file." />
 ```
 
-This is the outdated way to set a click event: `<input type="button" onclick="document.getElementById('txtfiletoread').click();">Load File</input>`
-
-Instead, keep HTML easy to read and maintain:
+This is an outdated way to set a click event that you will see in Winlink Standard Forms: `<input type="button" onclick="document.getElementById('txtfiletoread').click();">Load File</input>`. Instead of using this syntax, keep HTML easy to read and maintain by writing the HTML:
 
 ```html
 <section>
-    <input type="button" name="SaveButton" id="saveButton" value="Save Data" />
+  <input type="button" name="SaveButton" id="saveButton" value="Save Data" />
     <input type="button" name="LoadButton" id="loadButton" value="Load Data" />
     <input type="file" id="txtfiletoread" accept=".txt" />
 </section>
 ```
 
-Use `addEventListener()` to trigger the FileReader API code:
+Then adding JavaScript to:
+
+- Leverage the Document API to find and return an element based on its `id=""` attribute value.
+- Add `addEventListener()` funtion to trigger the FileReader API code to run and access the local file system.
 
 ```javascript
 const fileSelector = document.getElementById('txtfiletoread');
@@ -233,7 +252,7 @@ fileSelector.addEventListener('change', (event) => {
 });
 
 function readFileData(file) {
-    const fileReader = new FileReader();
+  const fileReader = new FileReader();
 
     // this subsection of code is not run until FileReader has tried to load file data
     fileReader.onload = (e) => {
@@ -274,6 +293,8 @@ And then use CSS to hide the "file" type input element to keep the UI tidy:
 }
 ```
 
+This is fairly complex, but follows a common, well known pattern and is safe.
+
 ## Storing Data Locally
 
 Here is an exercise to try:
@@ -301,12 +322,22 @@ function saveToLocalStorage(itemKey, itemValue) {
 
 ## JavScript Built-In Objects
 
-Primitives: Simple representations of values.
+Since this module is diving into JavaScript, following are some more tid-bits that you can reference when building your own Winlink Forms.
 
-Objects:
+Primitives: Simple representations of values. See [MDN JavaScript Glossary > Primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)
 
-- More robust data representations with built-in state and capabilities, such as Arrays and Date objects.
-- Other representations: Undefined, Not a Number, Null, etc.
+[Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object):
+
+- More robust data representations than primitives, with built-in state and capabilities.
+- Includes: Arrays and Date objects.
+- Others: Undefined, Not a Number, Null, etc. These are good for validating input and testing for appropriate output of processing/calculations.
+
+Logic is provided by `if(comparison){ ... }` and `then{ ... }` code blocks:
+
+- If the comparison is true, JavaScript within the code block executes.
+- If the comparison is false and there is a `then` statement, the `then` codeblock code is executed instead.
+
+There are other ways to compare things, but `if...then` is good for a vast majority of Winlink Form creation needs.
 
 JavaScript is full other other functionality. Probably the most commonly used are `map()` and `forEach()`. This is true specifically for Winlink Forms.
 

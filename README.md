@@ -12,6 +12,8 @@ Materials are set up in modules to build upon each other. By the time you are do
 
 This material is not comprehensive. As much as possible, I have reduced information down to bare minimums so that those new to web development can get onboarded and quickly start creating/editing basic Winlink Templates and Forms.
 
+The code behind these modules is available here: [wl-forms-training](https://github.com/nojronatron/wl-forms-training)
+
 ## Terminology
 
 Winlink Form: An HTML webpage with a specially crafted Form element designed to work directly with Winlink Express to simplify data input using a familiar web-based user interface.
@@ -164,6 +166,10 @@ Two common usages are shown below.
 The script will copy all `*.txt` template files from the specified `-srcPath`, and if `-includeForms` is provided it will also copy `*.html` form files.
 
 _Note_: The script does not distinguish between multiple forms and template files, it simply copies them all.
+
+## Bigfoot Bib Report WL Form
+
+Code is availble here: [Bigfoot-Bib-Report-WL-Form](https://github.com/nojronatron/Bigfoot-Bib-Report-WL-Form)
 
 ## Mock Winlink Express Server Project
 

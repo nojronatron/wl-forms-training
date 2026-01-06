@@ -9,8 +9,8 @@ Update the form look and feel using Cascading Style Sheets.
 CSS 3.0 is a declarative language that defines rules about how elements of a document (and the document itself) appear:
 
 - Color: Background, border, font.
-- Size: Elements can be sized to pixels, percentage of viewable window size, etc.
-- Shape: Elements are boxes (quadrilateral) by default, but can be coerced into triangles, ellipse shapes, etc.
+- Size: Elements can be sized in pixels, percentage of viewable window size, etc.
+- Shape: Elements are boxes (quadrilateral) by default, but can be coerced into triangles and ellipses.
 - Position: Elements are considered boxes that contain content like text. CSS can control the box position on the screen, as well as the position of the content within a box.
 
 The more you know about CSS, the more effective the form style will be.
@@ -22,6 +22,10 @@ CSS is great for managing web page accessibility concerns including:
 - Color contrasts to make text easy to read.
 - Using color to guide the user to specific parts of the page such as buttons with specific behaviors.
 - Highlighting active items and dimming inactive items.
+
+Advice: Be conservative with [gradients](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/linear-gradient).
+
+- Although they make for attractive design for some, you risk making your form unusable by people with color vision deficiencies (CVD).
 
 ## What This Module Covers
 
@@ -84,14 +88,14 @@ body {
 }
 ```
 
-HTML elements within the `<body>` element will inherit these CSS properties:
+HTML elements within the `<body>` element will inherit CSS properties that apply to them:
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
     <head></head>
     <body>
-        <h1>Document Heading</h2>
+        <h2>Document Heading</h2>
     </body>
 </html>
 ```
@@ -121,14 +125,16 @@ HTML is displayed on the left (the document Layout), and CSS is displayed on the
 1. The selected (inspect) element should be highlighted (selected) in the Developer Tools window.
 2. The `Styles` tab (on the right) shows the CSS rules that are applied to that element.
 
-Note the following style application denotations:
+Note the following style application notations:
 
 - Top subsection: `element.style`: Style properties applied _directly_ to the selected element.
 - Next subsection: Rules applied and the line of CSS where it is applied from.
 - Next: "user agent" style rules applied to the selected element.
 - Scroll down to the bottom. The _box_ display tells you how the selected element is definedd and formatted based on the HTML and the CSS application. The center blue box is the content area.
 
-`user agent` styling: This is the default CSS that browsers apply to the document by default. Without defaults, you would be forced to style every single element on your web page. These `user agent` styles are overridden by the CSS that you write.
+A note about `user agent` styling:
+
+- This is the default CSS that browsers apply to the document by default. Without defaults, you would be forced to style every single element on your web page. These `user agent` styles are overridden by the CSS that you write.
 
 ## Targeting HTML Elements
 
@@ -146,7 +152,7 @@ section {
 
 ```html
 <section>
-    <input type="button" name="SaveButton" id="saveButton" value="Save Data"></input>
+    <input type="button" name="SaveButton" id="saveButton" value="Save Data" />
 </section>
 ```
 
@@ -219,6 +225,10 @@ Target one specific element by unique ID:
 - Aqua: `#00FFFF`
 - Light Blue: `#1199FF`
 - Orange: `#FF9911`
+
+As you change Hex Color values, the Code Editor might pop-up a color-picker for you to preview your selection, and to allow you to point-and-click at the actual color and shading you want.
+
+Also note: Transparecy is possible by adding a fourth HEX value. For example, a semi-transparent blue would be `#0000FF88`
 
 ## Responsive Design
 
@@ -298,7 +308,7 @@ Advice:
 6. Update the code in `responsive-form.html` by replacing "Form Fields Start" example code with "Form Fields Responsive" example code, save the changes, and refresh the browser window.
 7. Try different Dimension settings again and see how the page respondes.
 
-Form Fields Start:
+Form Fields Start (just the HTML):
 
 ```html
 <label for="mycall">Enter your callsign:</label>
@@ -310,19 +320,19 @@ Form Fields Start:
 Form Fields Responsive:
 
 ```html
-<div>
+<div class="horizontally-aligned">
     <label for="mycall">Enter your callsign:</label>
     <input type="text" name="mycall" />
 </div>
-<div>
+<div class="horizontally-aligned">
     <label for="tocall">Enter recipients callsign:</label>
     <input type="text" name="tocall" />
 </div>
 ```
 
-This is just an example of the power of responsive design using just HTML and CSS.
+Adding CSS rules to apply to `.horizontally-aligned` will provide even more control over the placement of the elements.
 
-Adjusting [Media Queries](#media-queries) will help to refine exact bahavior based on screen sizes your users are most likely to be using. Remember to keep the number of cutoff values to 2 or 3 to keep for over complicating the code.
+Adjusting [Media Queries](#media-queries) will help to refine exact bahavior based on screen sizes your users are most likely to be using. Remember to keep the number of cutoff values to just a few to keep for over complicating the code.
 
 ## Install
 

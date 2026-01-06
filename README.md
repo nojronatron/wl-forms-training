@@ -10,13 +10,32 @@ Warning: Coding HTML, JavaScript, and CSS is an intermediate-level software deve
 
 Materials are set up in modules to build upon each other. By the time you are done with Module 4, you will have the basis for a functional, well designed and styled form.
 
-This material is not comprehensive. As much as possible, I have reduced information down to bare minimums so that those new to web development can get onboarded and start creating/editing basic Winlink Templates and Forms.
+This material is not comprehensive. As much as possible, I have reduced information down to bare minimums so that those new to web development can get onboarded and quickly start creating/editing basic Winlink Templates and Forms.
+
+The code behind these modules is available here: [wl-forms-training](https://github.com/nojronatron/wl-forms-training)
 
 ## Terminology
 
 Winlink Form: An HTML webpage with a specially crafted Form element designed to work directly with Winlink Express to simplify data input using a familiar web-based user interface.
 
 Winlink Template: A plain text file with Winlink specific syntax that can help rapidly define a standardized Message Layout, and integrate easily with Winlink Forms.
+
+## How To Use This Repository
+
+1. Clone to a local Git repo on a Windows machine (for live testing with Winlink Express), or a CodeSpaces or Docker container instance.
+2. CD to the repo root and launch VS Code or your favorite code editor that supports:
+    - HTML
+    - CSS
+    - JavaScript
+    - Markdown files (with rendering so they are easier to read)
+3. See [Project Directory Structure](#project-directory-structure) and [Module Instructions](#module-instructions) to understand where files are found and how to get started.
+
+You can approach working with modules one of a few different ways:
+
+1. Recommended: Use Git to track your changes. This way you can always revert changes you've made to the module code files.
+2. Copy the module files to similarly-named files, matching extensions same-for-same, and working with the copies. This way, the original files are always available in your code editor.
+
+Choose whatever you are most comfortable with.
 
 ## Project Directory Structure
 
@@ -25,13 +44,13 @@ A compact overview of the repository layout with short descriptions.
 ```text
 . (root): README
 |
-\_ 1-hello-world - Beginner template: hello-template.txt
-\_ 2-hello-form - Simple form + template: hello-form.html, hello-template.txt
-\_ 3-form-functionality - Intermediate form + template example: hello-form.html, hello-template.txt
-\_ 4-form-style - Styled form example: hello-form.html, hello-tempate.txt
-\_ 5-txrx-forms - Transmit/Receive example forms: tx-form.html, rx-form.html, tx-rx-template.txt
-\_ boilerplate - WDT's starter form example and an updated HTML 5 version for reference
-\_ tools - Helper script copies Template and Form file(s) to your Winlink Express installation
+\_ 1-hello-world - Beginner template: hello-world-template.txt
+\_ 2-hello-form - Simple form + template: hello-form.html, hello-form-template.txt
+\_ 3-form-functionality - Intermediate form + template example: functional-form.html, tagged-template.txt
+\_ 4-form-style - Styled form example: styled-form.html, tagged-styledform-template.txt
+\_ 5-txrx-forms - Transmit/Receive example forms: tx-form.html, tx-form-viewer.html, txrx-template.txt
+\_ boilerplate - WDT's starter form example, and an updated HTML 5 version for reference
+\_ tools - Helper script copies Template and Form file(s) to your Winlink Express installation's Global Templates directory
 ```
 
 Notes:
@@ -45,8 +64,8 @@ Instructions and background information in these modules will get increasingly m
 
 - Module 1 Create a basic Winlink Template: [Hello World](./1-hello-world/README-1.md)
 - Module 2: Create a basic Winlink Form [Hello Form](./2-hello-form/README-2.md)
-- Module 3: Add [Form Functionality](./3-form-functionality/README-3.md)
-- Module 4: Add [Form Style](./4-form-style/README-4.md)
+- Module 3: Add [Form Functionality](./3-form-functionality/README-3.md) using JavaScript.
+- Module 4: Add [Form Style](./4-form-style/README-4.md) using CSS.
 - Module 5 (Bonus): Create a [Form Viewer](./5-txrx-forms/README-5.md)
 
 Understanding the basics introduced in Modules 1 and 2 are probably the most critical short-term goals.
@@ -75,7 +94,7 @@ Below are recommended VS Code extensions to help create, update, and debug files
 - ms-vscode.live-server — Live Server (run a lightweight dev server with live reload for HTML/CSS/JS testing).
 - ms-vscode.vscode-typescript-next — TypeScript/JS preview features (optional; provides the latest TypeScript/JS language features).
 
-If you want this list trimmed further or expanded with recommended themes or Git/GitHub helpers, tell me which categories to include.
+If you want this list trimmed further or expanded with recommended themes or Git/GitHub helpers, update `./.vscode/extensions.json` for your environment needs.
 
 ### How To Install/Enable Extensions
 
@@ -92,6 +111,8 @@ You can also install VS Code Extensions from a PowerShell terminal:
 # Install an extension by its ID
 code --install-extension <publisher.extension-id>
 ```
+
+The VS Code Extension IDs are available at the [Visual Studio Marketplace](http://marketplace.visualstudio.com/vscode)
 
 ## Getting Help With Templates and Forms
 
@@ -110,9 +131,9 @@ Go to Winlink.org and peruse "HOW - TO Recipes" to find the following helpful re
 Use the Winlink Express Help system:
 
 - Navigate to Setup > Form Settings. This is very high-level information focused on Winlink Express settings, with some Forms advice.
-- Navigation to Operations > Templates and HTML Forms. Very brief overview of Forms and who is responsible for the Standard Templates. Links-out to Winlink.org How - To Recipes.
+- Navigation to Operations > Templates and HTML Forms. Very brief overview of Forms and who is responsible for the Standard Templates. Links-out to Winlink.org 'How - To Recipes' page.
 
-### Boilerplate Directory
+## Boilerplate Directory
 
 Provides basic starting points for new Winlink Forms. There are 2 files:
 
@@ -145,6 +166,19 @@ Two common usages are shown below.
 The script will copy all `*.txt` template files from the specified `-srcPath`, and if `-includeForms` is provided it will also copy `*.html` form files.
 
 _Note_: The script does not distinguish between multiple forms and template files, it simply copies them all.
+
+## Bigfoot Bib Report WL Form
+
+Code is availble here: [Bigfoot-Bib-Report-WL-Form](https://github.com/nojronatron/Bigfoot-Bib-Report-WL-Form)
+
+## Mock Winlink Express Server Project
+
+I have built an Express server that is designed to work with Winlink Express Forms to help with:
+
+- Understanding how data is transferred from Form to Message window.
+- Troubleshooting form load or submit operations.
+
+Find the project and instructions on how to deploy and use it at my GitHub repo [mock-wle-server](https://github.com/nojronatron/mock-wle-server)
 
 ## Thanks to the Winlink Developer Team
 
